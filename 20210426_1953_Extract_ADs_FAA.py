@@ -14,10 +14,12 @@ archive = zipfile.ZipFile('ADES.zip', 'r')
 archive.extractall(path=None, members=None, pwd=None)
 
 pypyodbc.lowercase = False
-PAFF = r''
+
 conn = pypyodbc.connect(
     r"Driver={Microsoft Access Driver (*.mdb, *.accdb)};" +
-    r"Dbq=e:\OneDrive\Documentos\LCN Consultoria\Tests on BD\AD.accdb;")
+    r"Dbq=e:\OneDrive\Documentos\LCN Consultoria\Tests on BD\AD.accdb;") # aqui tive que colocar o caminho absoluto do arquivo
+# o connect não admitiu só o nome do accdb no Working Folder
+
 cur = conn.cursor()
 
 query = 'SELECT * FROM ADs_by_Model'
